@@ -1,11 +1,12 @@
 import React from 'react'
 
 import Signup from './Components/Signup'
-import Counter from './Components/Counter'
+
 import Login from './Components/Login'
 
 import { BrowserRouter as Router , Routes ,Route,Link } from 'react-router-dom'
 import FetchData from './Components/FetchData'
+import FetchProduct from './Components/FetchProduct'
 
 const App = () => {
   return (
@@ -18,10 +19,11 @@ const App = () => {
 
         <div className='flex items-center justify-around gap-6 text-xl font-semibold'>
           
-          <Link to="/counter" >Counter</Link>
-          <Link to="/signup" >Signup</Link>
+          
+          <Link to="/" >Signup</Link>
           <Link to="/login" >Login</Link>
           <Link to="/fetchdata">FetchData</Link>
+          <Link to="/fetchproduct">Products</Link>
           
         </div>
 
@@ -29,10 +31,12 @@ const App = () => {
 
 
       <Routes>
-        <Route path="/counter" element={<Counter/>}/>
-        <Route path="/signup" element={<Signup/>}/>
+        
+        <Route path="/" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/fetchdata" element={<FetchData/>}/>
+
+        <Route path='/fetchproduct' element={<FetchProduct/>}/>
       </Routes>
     </Router>
     

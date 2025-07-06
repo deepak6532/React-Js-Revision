@@ -1,11 +1,11 @@
 import React from 'react'
-import Background_Changer from './Components/Background_Changer'
+import Counter from './Components/Counter'
 
 const App = () => {
   return (
     <div>
 
-      <Background_Changer/>
+      <Counter/>
     </div>
   )
 }

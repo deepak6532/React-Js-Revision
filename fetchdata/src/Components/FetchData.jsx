@@ -23,14 +23,14 @@ const FetchData = () => {
       {
         data.map((item, index) => (
           <div key={index} className='border-2 border-black bg-gray-400 m-4 p-4 w-74 h-100'>
-            <img src={item.image}
+            <img src={item.thumbnail}
             alt="image"
             className='w-full h-60 object-cover'></img>
             <h1 className='text-white text-xl font-bold'>ID: {item.id}</h1>
             
             <p className='text-white font-semibold'>Price: {item.price}</p>
             <p className='text-white'>Brand: {item.brand}</p>
-            <p className='text-white'>Model: {item.model}</p>
+            <p className='text-white'>Rating: {item.rating}</p>
             
           </div>
         ))
