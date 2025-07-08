@@ -7,6 +7,7 @@ const DataFetch = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     const loginData = JSON.parse(localStorage.getItem("Data"));
 
     
@@ -33,14 +34,14 @@ const DataFetch = () => {
     <div className='bg-slate-500 min-h-screen flex flex-wrap justify-center items-center p-4 rounded'>
       {
         data.map((item, index) => (
-          <div key={index} className='border-2 border-black bg-slate-600 rounded-lg m-4 p-4 w-74 h-110'>
+          <div key={index} className='border-1 border-black bg-white rounded-lg m-4 p-4 w-74 h-110'>
             <img src={item.thumbnail} alt="product" className='w-full h-60 object-cover' />
-            <h1 className='text-white text-xl font-bold'>ID: {item.id}</h1>
-            <p className='text-white font-semibold'>Price: {item.price}</p>
-            <p className='text-white'>Brand: {item.brand}</p>
-            <p className='text-white'>Category: {item.category}</p>
-            <p className='text-white'>Title: {item.title}</p>
-            <p className='text-white'>Rating: {item.rating}</p>
+            <h1 className='text-black text-xl font-bold'>ID: {item.id}</h1>
+            <p className='text-black font-semibold'>Price: {item.price}</p>
+            <p className='text-black'>Brand: {item.brand}</p>
+            <p className='text-black'>Category: {item.category}</p>
+            <p className='text-black'>Title: {item.title}</p>
+            <p className='text-black'>Rating: {item.rating}</p>
           </div>
         ))
       }
