@@ -12,6 +12,10 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 const DataFetch = () => {
   const [data, setData] = useState([]);
   const [search,setSearch] = useState('')
+
+    // const [order,setOrder]  = useState('');
+
+
   const navigate = useNavigate();
 
 
@@ -61,6 +65,9 @@ const DataFetch = () => {
     placeholder="search"
     className='px-4 py-2 w-sm border-2 border-black outline-none  rounded-lg '
     ></input>
+
+    {/* <button onClick={setOrder('asc')} >Low to high </button>
+    <button onClick={setOrder('asc')} >High to low </button> */}
 
 
     <div className='bg-slate-500 min-h-screen flex flex-wrap justify-center items-center p-4 rounded'>
