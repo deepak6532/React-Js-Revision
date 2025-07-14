@@ -10,6 +10,10 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const DataFetch = () => {
   const [data, setData] = useState([]);
   const [search,setSearch] = useState('')
+
+  const [order,setOrder]  = useState('');
+
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,8 +45,31 @@ const DataFetch = () => {
     d.category.toLowerCase().includes(search.toLowerCase()) ||
     d.description.toLowerCase().includes(search.toLowerCase()) 
 
+  
   ))
 
+
+  const sortData  = ()=>{
+
+    console.log(".......>>>",order)
+
+    if(order ==='asc')
+    {
+      return [...filterData].sort((a,b) => a.price - b.price)
+    }
+    else if(order ==='dsc')
+    {
+      return [...filterData].sort((a,b) => b.price - a.price)
+    }
+    else if(order ==='clear')
+    {
+
+      //  setSearch('')
+      return [...filterData]
+       
+    }
+    return filterData
+  }
 
   return (
 
@@ -54,13 +81,24 @@ const DataFetch = () => {
         placeholder='Search'
         onChange={e => setSearch(e.target.value)}
         className='w-sm px-4 py-2 border-2 border-black rounded-lg outline-none '
-      ></input>    
+      ></input>     
+
+      
+    <button onClick={() => setOrder('asc')} className='bg-gray-400 font-bold  p-2 rounded-lg m-2' >Low to high </button>
+
+    <button onClick={() => setOrder('dsc')}  className='bg-gray-400  font-bold p-2 rounded-lg m-2'>High to low </button>
+
+    <button onClick={() => setOrder('clear')} className='bg-gray-400 font-bold p-2 rounded-lg m-2'>Clear filter</button>
+
+
+
+        
       
       <div className='bg-slate-500 min-h-screen mt-2 flex flex-wrap justify-center items-center p-4 rounded'>
 
      
       {
-        filterData.map((item, index) => (
+        sortData().map((item, index) => (
           <div key={index} className='border-1 border-black bg-white rounded-lg m-4 p-4 w-74 h-110'>
             
             <LazyLoadImage
@@ -82,6 +120,7 @@ const DataFetch = () => {
             <p className='text-black'>Category: {item.category}</p>
             <p className='text-black'>Title: {item.title}</p>
             <p className='text-black'>Rating: {item.rating}</p>
+
           </div>
         ))
       }
