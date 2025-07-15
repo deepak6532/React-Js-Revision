@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
+import { useDispatch } from 'react-redux';
+import { signUp } from '../slice/AuthSlice';
 const Signup = () => {
 
   const [name,setName]  =useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
 
-  const handelsubmit = (e) =>{
+  const dispatch =  useDispatch()
+  const handelsubmit =async (e) =>{
     e.preventDefault()
 
     const data ={
@@ -14,10 +17,12 @@ const Signup = () => {
       "email":email,
       "password":password
     }
+    dispatch(signUp(data))
+    alert("data daved in store")
 
-    console.log("Data:-",data)
+    // console.log("Data:-",data)
 
-    localStorage.setItem("Data",JSON.stringify(data))
+    // localStorage.setItem("Data",JSON.stringify(data))
   }
   return (
    <>
