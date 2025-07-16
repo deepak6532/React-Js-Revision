@@ -1,22 +1,35 @@
 import React ,{ useState } from "react"
 
+import { useSelector } from "react-redux"
+
+
 const Login = () => {
 
+  
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
 
-    const localData = JSON.parse(localStorage.getItem("Data"))
+    
+  const storeData = useSelector((state) => state.auth.user);
 
-    const handelsubmit = ()=>{
+  console.log("store Data new", storeData);
 
-        if(email === localData.email && password === localData.password)
-        {
-            alert("Login Success")
-        }
-        else{
-            alert("email password does not match")
-        }
+
+  const handelsubmit = (e)=>{
+    e.preventDefault()
+
+    if(storeData.email === email && storeData.password === password)
+    {
+      alert("Login success")
+      setEmail('')
+      setPassword('')
     }
+    else{
+      alert("Email password does not match")
+    }
+  }
+
+    
 
   return (
     <>
@@ -25,6 +38,7 @@ const Login = () => {
 
       <h1 className='text-blue-600 text-xl text-center'>Login</h1>
 
+      
         <form onSubmit={handelsubmit} className='space-y-4 m-4'>
 
           <input type="text"
